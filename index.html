@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título con imagen</title>
+    <style>
+        body {
+            margin: 200; /* Eliminar márgenes predeterminados del body */
+            padding: 200; /* Eliminar relleno predeterminado del body */
+        }
+        .container {
+            display: flex;
+            align-items: center; /* Alinear verticalmente */
+            justify-content: center; /* Alinear horizontalmente */
+            height: 20vh; /* Establecer altura al 9% del viewport */
+        }
+        .title {
+            margin-left: 30px; /* Espacio entre la imagen y el título */
+        }
+        img {
+            max-width: 60%; /* Máximo ancho del contenedor padre */
+            height: auto; /* Mantiene la proporción */
+            max-height: 60vh; /* Máxima altura del viewport */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="giss 2024.png" alt="Imagen">
+           </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrusel de Imágenes</title>
+<style>
+  /* Estilo para el carrusel */
+  .carousel-container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="carousel-container">
+  <div class="carousel">
+    <img src="IMG_0359.JPG" alt="Imagen 2">
+    <img src="IMG_0462.JPG" alt="Imagen 3">
+    <img src="IMG_0490.JPG" alt="Imagen 4">
+    <img src="IMG_0411.JPG" alt="Imagen 1">
+    <img src="IMG_0415.JPG" alt="Imagen 2">
+    <img src="IMG_0423.JPG" alt="Imagen 3">
+    <img src="IMG_0447.JPG" alt="Imagen 4">
+    <img src="IMG_0457.JPG" alt="Imagen 1">
+    <img src="IMG_0464.JPG" alt="Imagen 2">
+    <img src="IMG_0498.JPG" alt="Imagen 3">
+    <img src="IMG_0359.JPG" alt="Imagen 4">
+    <img src="IMG_0462.JPG" alt="Imagen 1">
+    <img src="IMG_0490.JPG" alt="Imagen 2">
+    <img src="IMG_0411.JPG" alt="Imagen 3">
+    <img src="IMG_0415.JPG" alt="Imagen 4">
+    <img src="IMG_0423.JPG" alt="Imagen 3">
+  </div>
+  <div class="carousel-control prev" onclick="prevSlide()">❮</div>
+  <div class="carousel-control next" onclick="nextSlide()">❯</div>
+</div>
+
+<script>
+  let carouselIndex = 0;
+  const slides = document.querySelectorAll('.carousel img');
+  const slideWidth = slides[0].clientWidth; // Ancho de una imagen
+  const intervalTime = 3000; // Cambia la imagen cada 3 segundos
+  let slideInterval;
+
+  function startSlide() {
+    slideInterval = setInterval(() => {
+      nextSlide();
+    }, intervalTime);
+  }
+
+  function nextSlide() {
+    carouselIndex = (carouselIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    const offset = carouselIndex * -slideWidth;
+    document.querySelector('.carousel').style.transform = `translateX(${offset}px)`;
+  }
+
+  // Inicia el carrusel automáticamente cuando la página se carga
+  startSlide();
+</script>
+
+</body>
+</html>
+
+<h1 style="text-align: center; color: #00324D;">SALUD PÚBLICA CFTHS</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú con Popups</title>
+    <link rel="stylesheet" href="styles.css">
+<header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPopup('noticias')">📰 Noticias</a></li>
+            <li><a href="#" onclick="showPopup('tips para la salud')">🩺 Tips para la salud</a></li>
+            <li><a href="#" onclick="showPopup('educación y prevención')">👨‍⚕️📚👩‍⚕️ Educación y Prevención</a>
+                <li><a href="#" onclick="showPopup('vacunación')">💉 Vacunación</a></li>
+             <li><a href="#" onclick="showPopup('salud sexual y reproductiva')">👶 Salud Sexual y Reproductiva</a></li>
+             <li><a href="#" onclick="showPopup('tendencias')">👨‍⚕🌐🧬 Tendencias</a></li>
+            <li><a href="#" onclick="showPopup('normatividad')">📝Normatividad</a>
+         <li><a href="#" onclick="showPopup('Chistes de Salud')">🌱Chistes de Salud</a> 
+        </ul>
+        </nav>
+    </header>
+         <div id="popup-noticias" class="popup">
+        <div class="popup-content">
+              <span class="close" onclick="closePopup('noticias')">&times;</span>
+           <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            display: block;
+            margin: 0 auto; /* Esto centra la imagen horizontalmente */
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>
+    <img src="noticias.png" alt="Descripción de la imagen">
+</body>
+</html>
+
+     <p style="text-align: center;"><strong>"Las últimas 5 noticias top que impactan "Lunes ,27 de mayo de 2024"</strong></p> 
+         <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+      <p style="text-align: center;"><strong>“¿Sistema de salud propio de la capital? La propuesta vuelve a la mesa"</strong></p>  
+            <p>Luego de una reunión entre el superintendente Luis Carlos Leal y el alcalde Carlos Fernando Galán, donde discutieron tres aspectos clave para avanzar en la garantía del derecho a la salud de todos los capitalinos.Entre los temas que se tocaron en el encuentro, el que más llama la atención es el planteamiento de propuesta de un modelo de salud propio en la capital, que incluiría la territorialización de prestadores de servicios de salud para hacerlos accesibles en todas las localidades de Bogotá, sin embargo, no se tienen mayores detalles.</p>
+           <p>“Lo que hemos planteado en Bogotá como la construcción de un modelo de salud donde vamos a sentarnos con todos los actores para pensar siempre en la atención en salud a la población. Cómo garantizar, por ejemplo, en el territorio la atención en salud garantizando los derechos y, garantizando que no, como históricamente ha ocurrido, obligamos a la gente a recibir una atención lejos, inoportuna y de mala calidad“. afirmó el alcalde Galán.</p>
+          <p>En segundo lugar, se enfatizó en la revisión conjunta del plan de mejoramiento de Capital Salud, con el fin de asegurar su cumplimiento y la adecuada prestación de servicios para todos los usuarios del régimen subsidiado.</p>
+            <p><strong>Caracol.com (2024).“¿Sistema de salud propio de la capital? La propuesta vuelve a la mesa"</strong></p>
+         <a href="https://caracol.com.co/" style="color: blue;">Ir a Caracol.com</a>
+           <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->  
+         <hr> <!-- Línea divisoria -->
+        <p style="text-align: center;"><strong>"Fecode convocó reunión extraordinaria por problemas en sistema de salud de los maestros"</strong></p> 
+           <p>El principal sindicato de los maestros citó a su junta ejecutiva ante la “incertidumbre y conflictos” en la implementación del nuevo sistema.</p>
+             <p>La Federación Colombiana de Trabajadores de la Educación (Fecode) convocó a una reunión extraordinaria de su junta nacional por los problemas que se han registrado en la implementación del nuevo sistema de salud de maestros, que entró en operación el pasado 1 de mayo.</p>
+            <p>“La etapa de transición para su implementación a la fecha ha generado, dificultades, incertidumbres, conflictos, tensiones en los territorios, disputas entre lo nuevo y el status quo, lo público y lo privado, entre los antiguos prestadores y las nuevas entidades que ofertan el servicio”, indicó, a través de un comunicado, Fecode. “La Fiduprevisora que por ley asumió como articulador único, no asume con inmediata y suficiente capacidad resolutiva esta problemática, por otra parte, se configura una ofensiva de algunos medios de comunicación y de sectores de la política tradicional, al direccionar acciones que obstaculizan la estabilización, la continuidad del modelo”.</p>
+            <p><strong>"Fecode convocó reunión extraordinaria por problemas en sistema de salud de los maestros"</strong></p>
+      <a href="https://www.elespectador.com" style="color: blue;">Ir a El Espectador</a>
+            <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+         <hr> <!-- Línea divisoria -->
+        <p style="text-align: center;"><strong>"El Premio del Director General para la Salud Mundial se otorga al Primer Ministro de Barbados y a los desarrolladores de vacunas de ARNm para la COVID-19"</strong></p> 
+          <p>La Organización Mundial de la Salud (OMS) lanzó el domingo su primera Ronda de Inversión como parte de un plan más amplio para transformar la forma en que se financia la Organización de cara a una era de cambio climático, migraciones masivas, amenazas de pandemias, envejecimiento de la población mundial y geopolítica turbulenta.</p>
+           <p>El lanzamiento, en vísperas de la 77.ª Asamblea Mundial de la Salud, marca el inicio de una serie de compromisos y eventos de un año de duración, copatrocinados por países, en los que se invitará a los Estados Miembros y otros donantes a contribuir con fondos a la estrategia de la OMS. para el período 2025 a 2028 y mostrar un compromiso político de alto nivel con la OMS y la salud mundial.</p>
+          <p>La Ronda de Inversión culminará en noviembre con un importante evento de promesas de contribuciones que será organizado por Brasil en torno a la Cumbre de Líderes del G20.</p>
+            <p><strong>Organización Mundial de la Salud. (2024)."El Premio del Director General para la Salud Mundial se otorga al Primer Ministro de Barbados y a los desarrolladores de vacunas de ARNm para la COVID-19"</strong></p>
+            <a href="https://www.who.int/es/news" style="color: blue;">Ir a Organización Mundial de la Salud</a>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->  
+         <hr> <!-- Línea divisoria -->
+        <p style="text-align: center;"><strong>"OPS insta a fortalecer medidas preventivas contra el dengue en Centroamérica, México y el Caribe"</strong></p>  
+             <p>Washington, DC, 24 de mayo de 2024 (OPS)- Ante el aumento de casos de dengue en el hemisferio sur y el inicio de la temporada de mayor transmisión de esta enfermedad en el hemisferio norte, la Organización Panamericana de la Salud (OPS) insta a los países de Centroamérica, México y el Caribe a fortalecer las medidas preventivas.</p>  
+            <p>En una alerta epidemiológica emitida hoy, la OPS enfatiza la importancia de reforzar las acciones de vigilancia, diagnóstico y control vectorial, así como de preparar los servicios de salud para el manejo adecuado de pacientes. Esto con el objetivo de prevenir complicaciones y evitar la posible saturación de los servicios de salud.</p>
+               <p>El dengue es una enfermedad viral transmitida por mosquitos que, en la mayoría de los casos, no presenta síntomas. Sin embargo, cuando se manifiestan, estos suelen incluir fiebre alta, dolores de cabeza y corporales, náuseas y erupciones cutáneas. Aunque la mayoría se recupera en una o dos semanas, algunos pueden desarrollar formas graves que requieren hospitalización, pudiendo llegar a ser fatal cuando no es tratado oportuna y adecuadamente.</p> 
+            <p><strong>Organización Panamericana de la Salud. (2024)."OPS insta a fortalecer medidas preventivas contra el dengue en Centroamérica, México y el Caribe"</strong></p>
+          <a href="https://www.paho.org/es/noticias" style="color: blue;">Ir a Organización Panamericana de la Salud</a>
+            <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->  
+         <hr> <!-- Línea divisoria -->
+      <p style="text-align: center;"><strong>"La COVID-19 ha acabado con una década de avances en esperanza de vida a nivel mundial"</strong></p>  
+           <p>La última edición de las Estadísticas Mundiales de Salud publicadas hoy por la Organización Mundial de la Salud (OMS) revela que la pandemia de COVID-19 invirtió la tendencia de aumento constante en la esperanza de vida al nacer y de la esperanza de vida sana (EVAS) al nacer. </p>
+            <p>La pandemia acabó con casi una década de avances en la mejora de la esperanza de vida en solo dos años. Entre 2019 y 2021, la esperanza de vida mundial se redujo en 1,8 años, hasta los 71,4 años (un retroceso al nivel observado en 2012). De modo similar, la esperanza de vida sana a nivel mundial se redujo en 1,5 años hasta los 61,9 años en 2021 (también un retroceso al nivel observado en 2012). </p>
+         <p>El informe de 2024 también destaca cómo los efectos se han sentido de manera desigual en todo el mundo. Las regiones de la OMS para las Américas y el Asia Sudoriental fueron las más afectadas: entre 2019 y 2021 se produjo una reducción de la esperanza de vida de aproximadamente 3 años y de la esperanza de vida sana de 2,5 años. En contraste, la Región del Pacífico Occidental se vio mínimamente afectada durante los dos primeros años de la pandemia: se produjeron pérdidas de menos de 0,1 años en la esperanza de vida y de 0,2 años en la esperanza de vida sana. </p>
+            <p><strong>Organización Mundial de la Salud. (2024)."La COVID-19 ha acabado con una década de avances en esperanza de vida a nivel mundial"</strong></p>
+                   <a href="https://www.who.int/es/news" style="color: blue;">Ir a Organización Mundial de la Salud</a>
+        </div>
+        </div>
+    <div id="popup-tips para la salud" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('tips para la salud')">&times;</span>
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="tips salud.png" alt="Descripción de la imagen">
+</body>
+</html>
+            <p style="text-align: center;"><strong>"Diez Pilares para una Vida Plena y Saludable: Consejos Esenciales para el Bienestar"</strong></p>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+   <p> <p> <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded YouTube Video</title>
+    <style>
+        .video-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>
+    <div class="video-container">
+        <!-- Utiliza solo el identificador del video (el código después de 'youtu.be/') -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2y-No1h66lc" frameborder="0" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
+
+          <p><strong> • Alimentación balanceada:</strong></p> Prioriza una dieta rica en frutas, verduras, granos enteros, proteínas magras y grasas saludables. Limita el consumo de alimentos procesados, azúcares y grasas saturadas.
+                <p><strong> • Hidratación:</strong></p> Bebe suficiente agua a lo largo del día para mantener tu cuerpo hidratado y funcionando correctamente.
+                <p><strong> • Descanso adecuado:</strong></p> Asegúrate de dormir lo suficiente todas las noches para permitir que tu cuerpo se recupere y se regenere. El sueño es fundamental para la salud física y mental.
+                <p><strong> • Manejo del estrés:</strong></p> Encuentra técnicas para manejar el estrés, como la meditación, la respiración profunda, el yoga o simplemente tomarte un tiempo para relajarte y hacer actividades que disfrutes.
+                <p><strong> • Evitar el tabaco y el alcohol en exceso:</strong></p> Si fumas, considera dejarlo, y si bebes alcohol, hazlo con moderación.
+                <p><strong> • Revisiones médicas regulares:</strong></p> Programa chequeos médicos periódicos para detectar cualquier problema de salud de forma temprana y tratarlo adecuadamente.
+                <p><strong> • Mantén un peso saludable:</strong></p> Si tienes sobrepeso u obesidad, trabajar para alcanzar un peso saludable puede reducir el riesgo de desarrollar muchas enfermedades crónicas.
+                <p><strong> • Ejercicio regular:</strong></p> Intenta hacer ejercicio de forma regular, al menos 30 minutos al día. Puedes elegir actividades que te gusten, como caminar, nadar, correr, o practicar deportes.
+                <p><strong> • Buena higiene personal:</strong></p> Lavarse las manos regularmente, mantener una buena higiene bucal y practicar el sexo seguro son importantes para prevenir enfermedades.
+                <p><strong> • Mantén una actitud positiva:</strong></p> Cultivar una actitud optimista y positiva puede tener un impacto significativo en tu bienestar general.
+           <p style="text-align: center;"><strong>OpenAI. (2024). OpenAI. https://chat.openai.com/</strong></p>
+        </div>
+        </div>
+    <div id="popup-educación y prevención" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('educación y prevención')">&times;</span>
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="educaion y prevencion.png" alt="Descripción de la imagen">
+</body>
+</html>
+             <p style="text-align: center;"><strong>Importancia de la Educación en Primeros Auxilios para la Comunidad</strong></p>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+             <p style="text-align: center;"><strong>Introducción</strong></p>
+                <p> La educación en primeros auxilios desempeña un papel fundamental en la capacidad de una comunidad para responder eficazmente ante emergencias médicas. Proporciona a los individuos el conocimiento y las habilidades necesarias para brindar asistencia inmediata a personas que han sufrido lesiones o enfermedades repentinas hasta que llegue la ayuda profesional. En este tema, exploraremos la importancia de la educación en primeros auxilios y cómo puede salvar vidas en diversas situaciones.         
+                <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+                        <hr> <!-- Línea divisoria -->
+            <p style="text-align: center;"><strong>Importancia de la Educación en Primeros Auxilios</strong></p>   
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+            <p><strong>Respuesta Rápida</strong></p> 
+            <p>La educación en primeros auxilios capacita a las personas para actuar rápidamente en situaciones de emergencia, lo que puede marcar la diferencia entre la vida y la muerte.
+              <p><strong>Prevención de Complicaciones</strong></p> 
+            <p>Saber cómo manejar adecuadamente una lesión o enfermedad inicialmente puede prevenir complicaciones graves y reducir el tiempo de recuperación.
+                   <p><strong>Promoción del Bienestar Comunitario</strong></p> 
+            <p>Una comunidad bien capacitada en primeros auxilios puede promover un sentido de seguridad y solidaridad entre sus miembros, fomentando así un entorno más seguro y saludable.
+                       <p><strong>Reducción de la Mortalidad</strong></p> 
+            <p>La capacidad de proporcionar atención inmediata puede reducir la tasa de mortalidad en casos de emergencias médicas como ataques cardíacos, accidentes cerebrovasculares, traumatismos graves, entre otros.
+                          <p><strong>Empoderamiento Individual</strong></p> 
+            <p>La educación en primeros auxilios brinda a las personas confianza en sus habilidades para ayudar a otros en situaciones críticas, lo que puede aumentar la resiliencia y el bienestar emocional.
+                 <hr> <!-- Línea divisoria -->
+                          <p style="text-align: center;"><strong>Contenido de la Educación en Primeros Auxilios</strong></p> 
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+                <p><strong>Evaluación de la Escena y Seguridad Personal</strong></p>
+            <p>Aprender a evaluar la seguridad del entorno antes de brindar ayuda y cómo protegerse a uno mismo y a otros de peligros adicionales.
+                  <p><strong>Reanimación Cardio-Pulmonar (RCP)</strong></p>
+            <p>Técnicas para administrar compresiones torácicas y ventilaciones de rescate en casos de paro cardíaco.
+                          <p><strong>Manejo de Hemorragias</strong></p>
+            <p>Métodos para controlar hemorragias externas y aplicar vendajes adecuados
+                                <p><strong>Tratamiento de Lesiones Musculoesqueléticas</strong></p>
+            <p>Inmovilización de fracturas y técnicas para el manejo de esguinces y torceduras.
+                                  <p><strong>Reconocimiento de Signos de Emergencia Médica</strong></p>
+            <p>Identificación de síntomas de condiciones médicas graves como un ataque al corazón, un accidente cerebrovascular o una reacción alérgica grave.
+                    <hr> <!-- Línea divisoria -->
+              <p><strong>Sabias que?...</strong></p>
+            <p style="text-align: center;"><strong>Las enfermedades transmisibles.</strong></p>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+                <p> Conocidas como enfermedades infecciosas o contagiosas, son aquellas causadas por microorganismos como bacterias, virus, hongos, parásitos o priones, que se pueden transmitir de una persona a otra, de animales a personas o a través del medio ambiente. Estas enfermedades pueden propagarse a través del contacto directo con personas infectadas, mediante la ingestión de alimentos o agua contaminados, por picaduras de insectos vectores, por la inhalación de gotas respiratorias en el aire, entre otras vías de transmisión.          
+                 <p> • Covid -19
+                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargable Covid-19.PDF</title>
+</head>
+<body>
+    <p><a href="covid-19.pdf" download>Descargable Covid-19.PDF</a></p>
+</body>
+</html>
+                 <p> • IRA.
+                      <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRA.PDF</title>
+</head>
+<body>
+    <p><a href="Infecciones-respiratorias-agudas.pdf" download>Descargable IRA.PDF</a></p>
+</body>
+</html>
+                 <p> • Malaria.
+                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria.PDF</title>
+</head>
+<body>
+    <p><a href="Malaria.pdf" download>Descargable Malaria.PDF</a></p>
+</body>
+</html>
+                 <p> • Lepra.
+                                       <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lepra.PDF</title>
+</head>
+<body>
+    <p><a href="Lepra.pdf" download>Descargable Lepra.PDF</a></p>
+</body>
+</html>
+                 <p> • Ébola.
+                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebola.PDF</title>
+</head>
+<body>
+    <p><a href="Ebola.pdf" download>Descargable Ebola.PDF</a></p>
+</body>
+</html>
+                 <p> • Hepatitis.
+                                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hepatitis.PDF</title>
+</head>
+<body>
+    <p><a href="Hepatitis.pdf" download>Descargable Hepatitis.PDF</a></p>
+</body>
+</html>
+                 <p> • Sarampión.
+                                       <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarampión.PDF</title>
+</head>
+<body>
+    <p><a href="Sarampion.pdf" download>Descargable Sarampión.PDF</a></p>
+</body>
+</html>
+                 <p> • Tuberculosis.
+                          <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuberculosis.PDF</title>
+</head>
+<body>
+    <p><a href="Tuberculosis-msps.pdf" download>Descargable Tuberculosis.PDF</a></p>
+</body>
+</html>
+                 <p> • Chagas.
+                                               <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chagas.PDF</title>
+</head>
+<body>
+    <p><a href="Chagas.pdf" download>Descargable Chagas.PDF</a></p>
+</body>
+</html>
+                 <p> • Aedes aegypti.
+                        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aedes aegypti.PDF</title>
+</head>
+<body>
+    <p><a href="Aedes-aegypti.pdf" download>Descargable Aedes aegypti.PDF</a></p>
+</body>
+</html>
+                 <p> • Toxoplasmosis.
+                                            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxoplasmosis.PDF</title>
+</head>
+<body>
+    <p><a href="Toxoplasmosis.pdf" download>Descargable Toxoplasmosis.PDF</a></p>
+</body>
+</html>
+                  <p> • VIH.
+                                                            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIH.PDF</title>
+</head>
+<body>
+    <p><a href="VIH.pdf" download>Descargable VIH.PDF</a></p>
+</body>
+</html>
+                 <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+                       <hr> <!-- Línea divisoria -->
+              <p style="text-align: center;"><strong>Prevención de enfermedades no transmisibles.</strong></p>
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->      
+            </p> Las enfermedades no transmisibles (ENT) conocidas también como enfermedades crónicas, son afecciones de larga duración con una progresión generalmente lenta. Los cuatro tipos principales son​: 
+                 <p> • Las enfermedades cardiovasculares como los infartos de miocardio, el ataque cerebrovascular​ y la hipertensión arterial.
+                 <p> • Los diferentes tipos de cáncer. 
+                 <p> • Las enfermedades respiratorias crónicas como la neumopatía obstructiva crónica o el asma.
+                 <p> • La diabetes​.
+                 <p> Estas enfermedades son la causa de defunción más importante en el mundo, pues representan en su conjunto el 70% del número total de muertes anuales; comparten factores de riesgo comunes que incluyen la exposición y consumo del humo del tabaco y sus derivados, la inactividad física, el uso nocivo del alcohol y la dieta no saludable. Las ENT se pueden prevenir y controlar a través de cambios en el estilo de vida, intervenciones de salud y políticas públicas costo-efectivas y requieren un abordaje intersectorial e integrado.
+                 <p><strong> Minsalud. (2024). Prevencion de enfermedades transmisibles y no transmisibles. www.minsalud.gov.co/ </strong></p> 
+         </div>
+    </div>
+
+    <div id="popup-vacunación" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('vacunación')">&times;</span>
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="vacunacion.png" alt="Descripción de la imagen">
+</body>
+</html>
+             <p style="text-align: center;"><strong>Prioridades y Acceso: Directrices Claves del Esquema Nacional de Vacunación en Colombia"</strong></p>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+            <p><strong>Sabias que?...</strong></p>
+               <p> • Las vacunas incluidas en el esquema nacional de vacunación, son gratuitas para todos los niños menores de 6 años de edad. Para tener acceso a ellas, pueden dirigirse al punto de vacun​ación m​ás cercano. 
+            <p> • Las vacunas incluidas en el esquema nacional de vacunación son seguras y eficaces, razón por la cual cuentan con el apoyo de la Sociedad Colombiana de Pediatría.
+                 <p> • No olvide llevar el carné de vacunación si por alguna razón no lo tiene, debe acudir al punto de vacunación más cercano para que se revise su caso de manera particular.​
+                   <p> Las Instituciones prestadoras de servicios de salud (IPS) y las Entidades promotoras de salud (EPS) deberán tener en cuenta los objetivos establecidos dentro de los lineamientos para la vacunación durante 2020:​
+                  <p> • Intensificar la vacunación infantil en los niños y niñas de 0 a 5 años 11 meses 29 días
+                  <p> • Iniciar, continuar y completar los esquemas y refuerzos de las vacunas, a todos los niños y niñas menores de 6 años.
+                  <p> • Vacunar al total de la población infantil entre 6 y 23 meses contra la influe​nza.
+                  <p> • Vacunar al total de la población de 60 años y más con una dosis de vacuna contra la influenza y a otra población definida por MinSalud, entre otros los pacientes con tratamiento de diálisis y hemodiálisis.
+                  <p> • Garantizar la aplicación de la vacunación anual contra Influenza a los familiares y convivientes de la población menor de 18 años con cáncer, las cuales se suministrarán en la Unidad de Cáncer Infantil, en cumplimiento de la Ley 1388 de 2010
+                  <p> • Vacunar al total de mujeres en segundo y tercer trimestre de gestación con una dosis contra influenza.
+                  <p> • Vacunar al total de mujeres a partir de la semana 26 de gestación con una dosis de vacuna de TdaP (tétanos, difteria y tos ferina).
+                  <p> • Vacunar a la población de niñas escolarizadas en cuarto grado de básica primaria, que hayan cumplido nueve años y más de edad, y a las niñas no escolarizada de nueve a 17 años de edad, contra el virus del papiloma humano (VPH).
+                 <p style="text-align: center;"><strong> Minsalud. (2024).Vacunacion. www.minsalud.gov.co/ </strong></p> 
+                         <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquema de Vacunación.PDF</title>
+</head>
+<body>
+    <p><a href="Esquema de Vacunación.pdf" download>Descargable Esquema de Vacunación.PDF</a></p>
+</body>
+</html>
+        </div>
+    </div>
+<div id="popup-salud sexual y reproductiva" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('salud sexual y reproductiva')">&times;</span>
+               <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="salud sexual.png" alt="Descripción de la imagen">
+</body>
+</html>
+              <p><strong>Sabias que?...</strong></p>
+                    <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->   
+                 <p> ​El Ministerio de Salud y Protección Social considera la sexualidad como una dimensión prioritaria en el curso de la vida de las personas. Se espera que su ejercicio se enmarque en la práctica de los Derechos Humanos y la garantía de los derechos Sexuales y los Derechos Reproductivos. En Colombia aún tenemos muchas problemáticas asociadas a la sexualidad y a la reproducción, pero cada vez más el Estado, las instituciones y las políticas que se desarrollan tienen avances importantes en la comprensión de las diferentes miradas de la sexualidad y sus abordajes. Esto se refleja en la incorporación de los enfoques de género, derechos y diferencial como aspectos esenciales para el logro de una salud sexual y reproductiva plena, segura, digna y responsable para todas las personas en Colombia.  ​
+                 <p> • Sexualidad y derechos.
+                 <p> • Violencia de genero.
+                  <p> • Salud materna.
+                  <p> • Anticoncepción.
+                  <p> • Infecciones de transmición sexual.
+                  <p> • Prevencion aborto inseguro/Interrupción voluntaria del embarazo.
+                       <p style="text-align: center;"><strong> Minsalud. (2024).Salud sexual y Reproductiva. www.minsalud.gov.co/ </strong></p> 
+              <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Sexual y Reproductiva.PDF</title>
+</head>
+<body>
+    <p><a href="salud sexual y reproductiva .pdf" download>Descargable Salud Sexual y Reproductiva.PDF</a></p>
+</body>
+</html>
+               </div>
+    </div>
+    <div id="popup-tendencias" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('tendencias')">&times;</span>
+             <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="tendencias.png" alt="Descripción de la imagen">
+</body>
+</html>
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+            <p style="text-align: center;"><strong>Revista de Investigación e Innovación en Salud Vol. 7 (REDIIS)</strong></p> 
+            <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+            <p><strong>EL JUEGO MEDIADO POR LA TECNOLOGÍA: ELEMENTO MOTIVADOR PARA UN APRENDIZAJE SIGNIFICATIVO.</strong></p>  
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->   
+                <p>  El artículo busca resaltar la importancia que tiene el juego mediado por la tecnología en los procesos educativos,
+con el fin de presentar un acercamiento a diferentes estrategias que permitan fortalecer la metodología utilizada y el proceso
+enseñanza aprendizaje. . Materiales y métodos: Se realizó un estado del arte dividido en dos fases: heurística documentando
+diferentes fuentes de información, una fase hermenéutica basada en conceptualización del problema, relación de investigaciones, teóricos e interpretación sobre el tema y las diferentes posturas. Resultado y discusión: La sociedad ha sufrido cambios
+sociales y tecnológicos, los jóvenes de hoy tienen exigencias a las cuales hay que responder, la sociedad del conocimiento ha
+permitido acceder a grandes cantidades de información, por esta razón es importante replantear la forma de enseñar, el uso
+de estrategias motivadoras como el juego mediado por la tecnología, contribuye con el logro de un aprendizaje significativo y
+con los cambios que se pretenden en la educación, respondiendo de manera acertada a las necesidades de los estudiantes.  
+   <p style="text-align: center;"><strong>Dina Luz Naranjo Ortega/ Jaime Enrique Mendoza González</strong></p>   
+         <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuegoMediado.PDF</title>
+</head>
+<body>
+    <p><a href="JuegoMediado.pdf" download>Descargable JuegoMediado.PDF</a></p>
+</body>
+</html>
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="JUEGO .png" alt="Descripción de la imagen">
+</body>
+</html>
+ <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->  
+               <hr> <!-- Línea divisoria -->
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+             <p style="text-align: center;"><strong>Revista de Investigación e Innovación en Salud Vol. 6 (REDIIS)</strong></p>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->
+              <p><strong>SIMULACIÓN Y REALIDAD VIRTUAL EN PROCESOS DE ENSEÑANZA - APRENDIZAJE EN LA FORMACIÓN EN SALUD.</strong></p>  
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo -->   
+                <p>Este artículo explora el impacto de la IA En  la  última  década,  la  simulación  se  ha  estado  incorporando en la formación de los profesionales de la salud como estrategia pedagógica a nivel mundial; debido a los resultados de numerosas investigaciones, las cuales han demostrado que las habilidades clínicas, de comunicación y trabajo en equipo, así como las actitudes y el profesionalismo  aprendidos  mediante  formación  con  simulación,  se  trasladan  al  entorno  de  trabajo  de  modo  más  eficaz  que  cuando  se  comparan  con  los  métodos  tradicionales  (Opazo et al., 2017.)
+                  <p>Con respecto a lo anterior, en Europa los estudiantes han percibido  un  incremento  de  sus  habilidades  en  la  práctica  mediante  el  uso  de  la  simulación  en  sus  procesos  formativos debido al estímulo visual, auditivo y táctil que les permite estar inmersos en un ambiente que se apro-xima a la realidad (Martínez, 2015). Así mismo, se resalta el potencial para simular situaciones en diversos campos del mundo real, particularmente en el campo de la educación, donde sus características de inmersión, aprendizaje en primera persona, interacción no simbólica son de gran ayuda  en  los  procesos  de  enseñanza  -  aprendizaje  (Ur-quiza,2016)
+          <p style="text-align: center;"><strong>Martha Patricia Ramos/ María Esperanza Flórez</strong></p>   
+                      <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulacion..PDF</title>
+</head>
+<body>
+    <p><a href="Simulacion.pdf" download>Descargable Simulacion..PDF</a></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="realidad virtual.png" alt="Descripción de la imagen">
+</body>
+</html>
+
+                  </div>
+     </div>
+    <div id="popup-normatividad" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('normatividad')">&times;</span>
+             <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="normatividad.png" alt="Descripción de la imagen">
+</body>
+</html>
+           <p><strong>Normatividad sector salud</strong></p>
+                  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decreto-786-de-1990-Necropsias.PDF</title>
+</head>
+<body>
+    <p><a href="Decreto-786-de-1990-Necropsias.pdf" download>Descargable Decreto-786-de-1990-Necropsias .PDF</a></p>
+</body>
+</html>
+                <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley-100-de-1993-Ley-SGSSS.PDF</title>
+</head>
+<body>
+    <p><a href="Ley-100-de-1993-Ley-SGSSS.pdf" download>Descargable Ley-100-de-1993-Ley-SGSSS.PDF</a></p>
+</body>
+</html>
+                <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley-1090-de-2006-Reglamentación-de-la-psicología.PDF</title>
+</head>
+<body>
+    <p><a href="Ley-1090-de-2006-Reglamentación-de-la-psicología.pdf" download>Descargable Ley-1090-de-2006-Reglamentación-de-la-psicología.PDF</a></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEY-1164-DE-2007-Ley-de-Talento-Humano-en-Salud.PDF</title>
+</head>
+<body>
+    <p><a href="LEY-1164-DE-2007-Ley-de-Talento-Humano-en-Salud.pdf" download>Descargable LEY-1164-DE-2007-Ley-de-Talento-Humano-en-Salud.PDF</a></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley-1733-de-2014-Cuidados-Paliativos.PDF</title>
+</head>
+<body>
+    <p><a href="Ley-1733-de-2014-Cuidados-Paliativos.pdf" download>Descargable Ley-1733-de-2014-Cuidados-Paliativos.PDF</a></p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución No 100 de 2024.pdf</title>
+</head>
+<body>
+    <p><a href="Resolución No 100 de 2024.pdf" download>Descargable Resolución No 100 de 2024.PDF</a></p>
+</body>
+</html>
+ <p>https://scare.org.co/
+
+        </div>
+    </div>
+    
+    <div id="popup-Chistes de Salud" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('Chistes de Salud')">&times;</span>
+            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="chistes.png" alt="Descripción de la imagen">
+</body>
+</html>
+             <p style="text-align: center;"><strong>"SaludSonrisa: Cuidando tu Bienestar con una Dosis de Humor"</strong></p>
+              <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+            😃😁😄
+               <p> •¿Cuál es el último animal que subió al arca de Noé? El del-fin.! jajaja
+          <p> •¿Cómo se dice disparo en árabe? Ahí-va-la-bala.! jajaja
+  <p> •¿Qué le dice un gusano a otro gusano? Voy a dar una vuelta a la manzana.! jajaja
+             <p> •¿Cómo se queda un mago después de comer? Magordito. jajaja
+             <p> •¿Qué le dice un espagueti a otro? ¡El cuerpo me pide salsa! jajaja
+             <p> •El libro de matemáticas es un inmaduro, ya va siendo hora de que resuelva el solo sus problemas.! jajaja
+                  <p> •—Mamá, en el cole me llaman despistado.
+—Niño, ¡que esta no es tu casa! jajaja
+                       <p> •—Cariño, creo que estás obsesionado con el fútbol y me haces falta.
+—¡¿Qué falta?! ¡¿Qué falta?! ¡¡Si no te he tocado!!!" jajaja
+                            <p> •¿Sabes cuánta leche da una vaca en su vida? Pues la misma que en bajada." jajaja
+                                 <p> •¿Por qué le dio un paro cardiaco a la impresora? Parece que tuvo una impresión muy fuerte." jajaja
+             
+                                       <hr> <!-- Línea divisoria -->
+                                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="chiste 1.png" alt="Descripción de la imagen">
+</body>
+</html>
+                                       <hr> <!-- Línea divisoria -->       
+                                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="chiste 2.png" alt="Descripción de la imagen">
+</body>
+</html>
+                                       <hr> <!-- Línea divisoria -->                             
+                                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="chiste 3.png" alt="Descripción de la imagen">
+</body>
+</html>
+                <hr> <!-- Línea divisoria -->
+                                     <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <img src="chiste 4.png" alt="Descripción de la imagen">
+</body>
+</html>
+            <p style="text-align: center;"><strong> OpenIA (2024).https://chatgpt.com/https://co.pinterest.com/</strong></p> 
+ </div>
+    </div>
+    <script>
+        function showPopup(id) {
+            var popup = document.getElementById("popup-" + id);
+            popup.style.display = "block";
+        }
+
+        function closePopup(id) {
+            var popup = document.getElementById("popup-" + id);
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+<ul class="submenu">
+<p style="text-align: center;"><strong>"¡Bienvenido a nuestra página de Salud Pública! Encuentra consejos y recursos para una vida más saludable. ¡Comienza tu viaje hacia el bienestar hoy!"</strong></p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Blog</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" onclick="toggleBlog(event)">Blog</a></li>
+    </ul>
+
+    <div id="BlogContent" class="hidden">
+        <div style="max-width: 600px; margin: 0 auto;">
+    <p style="text-align: justify;">"Nuestro blog se centra en el Laboratorio de Investigación Tecnológico e Innovación en Salud "SENNOVA", explorando avances tecnológicos y desarrollos innovadores para mejorar el sector salud."</p>
+</div>
+       <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+        <p style="text-align: center;"><strong>Laboratorio de Investigación Tecnológico e Innovación en Salud "SENNOVA"</strong></p>
+           <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+         <p><strong>¿Que es?</strong></p>
+      <p> El Laboratorio de Investigación Tecnológico e Innovación en Salud del SENA impulsa la investigación, el desarrollo tecnológico y la innovación en salud en Colombia. Destacado por su liderazgo en la integración de tecnologías como la realidad virtual y el software especializado, promueve soluciones creativas para formación de profesionales de la salud y mejora en diagnóstico y tratamiento. Organiza eventos académicos y proyectos de investigación que lo posicionan como un referente en innovación tecnológica para la salud en el país.
+  <hr> <!-- Línea divisoria -->
+            <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+            <p><strong>¿Que hace o razón de ser?</strong></p> 
+        <p>El Laboratorio de Investigación Tecnológico e Innovación en Salud del SENA tiene como principal objetivo promover la investigación, el desarrollo tecnológico y la innovación en el campo de la salud en Colombia. Su labor se enfoca en generar conocimiento, desarrollar tecnologías médicas, y formar talento humano especializado en estas áreas. 
+      <hr> <!-- Línea divisoria -->
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+             <p><strong>¿Razón de Existir?</strong></p> 
+        <p>La razón de existir del Laboratorio de Investigación Tecnológico e Innovación en Salud del SENA radica en su compromiso de impulsar el progreso científico y tecnológico en el sector de la salud en Colombia. Su labor busca mejorar la calidad de vida de la población mediante la investigación aplicada, el desarrollo de tecnologías médicas y la formación de talento humano especializado. Así, contribuye al fortalecimiento del sistema de salud del país y al avance de la ciencia y la tecnología en beneficio de la sociedad.
+      <hr> <!-- Línea divisoria -->
+             <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+             <p><strong>¿Como ayuda a la Salud?</strong></p> 
+        <p>El Laboratorio de Investigación Tecnológico e Innovación en Salud del SENA ayuda a la salud de diversas maneras:
+ <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+          <p><strong>Investigación aplicada</strong></p>     
+</p>Realiza investigaciones en áreas clave de la salud para desarrollar soluciones innovadoras y mejorar el diagnóstico, tratamiento y prevención de enfermedades.
+<br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+          <p><strong> Desarrollo de tecnologías médicas</strong></p>     
+<p>Diseña y desarrolla tecnologías médicas avanzadas, como dispositivos médicos, equipos de diagnóstico y herramientas de telemedicina, que contribuyen a mejorar la atención médica y la calidad de vida de los pacientes.
+ <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+          <p><strong> Formación de talento humano</strong></p>     
+<p>Ofrece programas de capacitación y formación especializada en áreas como realidad virtual, sofware de salud digital, entre otras, para preparar a profesionales capacitados que puedan contribuir al avance y la mejora continua del sector de la salud.
+ <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+          <p><strong>Transferencia de tecnología</strong></p>     
+<p>Facilita la transferencia de conocimientos y tecnologías entre instituciones, empresas y profesionales del sector de la salud, promoviendo la adopción de innovaciones que beneficien a la comunidad.
+  <hr> <!-- Línea divisoria -->
+     <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+              <p><strong>Logros</strong></p>     
+<p>El Laboratorio de Investigación Tecnológico e Innovación en Salud del SENA ha destacado por sus ponencias en eventos importantes como los simposios que se realizan cada año y su participación en ferias, lo que demuestra su reconocimiento y contribución al avance científico y tecnológico en el campo de la salud. Estas presentaciones y participaciones son logros significativos que reflejan el impacto y la relevancia del centro en la comunidad académica y profesional.
+  <hr> <!-- Línea divisoria -->
+     <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+              <p><strong>Valor Agregado</strong></p> 
+      <p>El Laboratorio de Investigación Tecnológica e Innovación en Salud del SENA radica en su enfoque integral que combina investigación aplicada, desarrollo tecnológico y formación de talento humano especializado en el campo de la salud. Además, su capacidad para colaborar con diversas instituciones y empresas del sector, así como su compromiso con la innovación y la mejora continua, lo convierten en un actor clave para impulsar el progreso científico y tecnológico en Colombia. Su capacidad para generar soluciones innovadoras y promover la transferencia de tecnología contribuye significativamente al fortalecimiento del sistema de salud y al bienestar de la población.
+    <hr> <!-- Línea divisoria -->
+            
+    </div>
+    <script>
+        function toggleBlog(event) {
+            event.preventDefault();
+            var BlogContent = document.getElementById("BlogContent");
+            if (BlogContent.style.display === "none") {
+                BlogContent.style.display = "block";
+            } else {
+                BlogContent.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Salud Pública Avanzada</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" onclick="toggleSaludPúblicaAvanzada(event)">Salud Pública Avanzada</a></li>
+    </ul>
+
+    <div id="SaludPúblicaAvanzadaContent" class="hidden">
+         <p><strong>Introducción</strong></p>
+        <p>•La salud pública es un campo vital que se enfoca en promover y proteger la salud de las comunidades. Aborda desafíos como enfermedades infecciosas, salud ambiental y acceso a la atención médica. Utiliza estrategias de prevención, educación y políticas para mejorar la salud y el bienestar de la población en general.</p>
+                        <hr> <!-- Línea divisoria -->
+                     <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+                      <p><strong>Salud Digital y Tecnología Sanitaria</strong></p>
+                     <p>El uso de tecnologías digitales como aplicaciones móviles, dispositivos portátiles y plataformas en línea está transformando la forma en que se entrega la atención médica y se promueve la salud pública.
+ <hr> <!-- Línea divisoria -->
+                         <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+                          <p><strong>Epidemiología Genómica</strong></p>
+                     <p>La secuenciación del genoma está revolucionando nuestra comprensión de las enfermedades infecciosas y crónicas, permitiendo un mejor rastreo de brotes, identificación de factores de riesgo genéticos y desarrollo de tratamientos personalizados.
+                      <hr> <!-- Línea divisoria -->
+                          <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+                         <p><strong>Salud Global y Preparación para Emergencias</strong></p>
+                     <p>Los desafíos globales de salud, como pandemias, cambio climático y desastres naturales, están impulsando una mayor colaboración internacional y un enfoque más coordinado en la preparación y respuesta a emergencias de salud pública.
+                           <hr> <!-- Línea divisoria -->
+                          <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+                          <p><strong>Equidad en Salud y Determinantes Sociales</strong></p>
+                     <p>Hay un creciente reconocimiento de la importancia de abordar los determinantes sociales de la salud, como la pobreza, la educación y el acceso a la atención médica, para lograr una mayor equidad en salud y reducir las disparidades en el acceso y los resultados de salud.
+                          <hr> <!-- Línea divisoria -->
+                          <br> <!-- Agregar un salto de línea entre el primer y segundo párrafo --> 
+                           <p><strong>Salud Mental y Bienestar</strong></p>
+                      <p> La salud mental está recibiendo una mayor atención en el ámbito de la salud pública, con un enfoque en la prevención, detección temprana y tratamiento de trastornos mentales, así como en la promoción del bienestar emocional y psicológico en la comunidad.
+                     <hr> <!-- Línea divisoria -->
+    </div>
+
+    <script>
+        function toggleSaludPúblicaAvanzada(event) {
+            event.preventDefault();
+            var SaludPúblicaAvanzadaContent = document.getElementById("SaludPúblicaAvanzadaContent");
+            if (SaludPúblicaAvanzadaContent.style.display === "none") {
+                SaludPúblicaAvanzadaContent.style.display = "block";
+            } else {
+                SaludPúblicaAvanzadaContent.style.display = "none";
+            }
+        }
+     </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Revista REDIIS</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" onclick="toggleRevistaREDIIS(event)">Revista REDIIS</a></li>
+    </ul>
+
+    <div id="RevistaREDIISContent" class="hidden">
+         <p><strong>Link redirigible Revista REDIIS</strong></p>
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Enlace Redirigible con Color Personalizado</title>
+    <style>
+        /* Estilo para el enlace */
+        a {
+            color: ; /* Cambia el color del texto del enlace a azul */
+            text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+        }
+
+        /* Cambia el color del texto del enlace al pasar el mouse sobre él */
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Enlace redirigible -->
+<a href="https://revistas.sena.edu.co/index.php/rediis">Haz clic aquí para ir a Revista REDIIS</a>
+
+</body>
+</html>
+<hr> <!-- Línea divisoria -->
+         <p><strong>Link redirigible Semilleros de Investigación</strong></p>
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Enlace Redirigible con Color Personalizado</title>
+    <style>
+        /* Estilo para el enlace */
+        a {
+            color: ; /* Cambia el color del texto del enlace a azul */
+            text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+        }
+
+        /* Cambia el color del texto del enlace al pasar el mouse sobre él */
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Enlace redirigible -->
+<a href="https://talentohumanoensalud.blogspot.com/p/blog-page_82.html">Haz clic aquí para ir a Semilleros de Investigación</a>
+
+</body>
+</html>
+          </div>
+    <script>
+        function toggleRevistaREDIIS(event) {
+            event.preventDefault();
+            var RevistaREDIISContent = document.getElementById("RevistaREDIISContent");
+            if (RevistaREDIISContent.style.display === "none") {
+                RevistaREDIISContent.style.display = "block";
+            } else {
+                RevistaREDIISContent.style.display = "none";
+            }
+        }
+     </script>
+</body>
+</html>
+   </script>
+        </div> 
+         </div>
+        <hr> <!-- Línea divisoria -->
+               <li><a href="#" style="pointer-events: none; cursor: default;">Preguntas Frecuentes</a></li>
+             <hr> <!-- Línea divisoria -->
+     <li><a href="#" style="pointer-events: none; cursor: default;">Contacto</a></li>
+    <p style="text-align: center;">gisssennova@gmail.com - Rafael Mesa Cel:3204162492 - Horario de Atención - Lunes a Viernes 8:30.Am - 4:30 PM</p>
+ <p style="text-align: center;">"¡Hola! Soy Yulian Sánchez, del programa de salud pública y creador de esta plataforma. Espero que la disfrutes."</p>
+
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificar Página</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¿Qué opinas de esta página?</h1>
+        <div class="buttons">
+            <button id="goodBtn" class="good-btn">Buena</button>
+            <div id="goodCount" class="count">0</div>
+            <button id="badBtn" class="bad-btn">Mala</button>
+            <div id="badCount" class="count">0</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
